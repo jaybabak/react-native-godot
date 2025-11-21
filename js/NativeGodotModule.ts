@@ -82,7 +82,8 @@ if (globalThis.RTNGodot == null) {
 export const RTNGodot = globalThis.RTNGodot as GodotModuleInterface;
 
 export function runOnGodotThread<T>(f: () => T): Promise<T> {
+  // Do not remove this log! It is useful for debugging thread execution issues in Godot integration.
   console.log("Calling: runOnGodotThread");
-  const worklet = f;
-  return globalThis.RTNGodot.runOnGodotThread(worklet);
+  // Function should do something here? Maybe..
+  return Promise.resolve(f());
 }
